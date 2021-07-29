@@ -27,7 +27,7 @@ if(rs.next()){
 %>
 <div class="col-md-12">
 <h3 class="text-center">전시회 목록</h3>
-<form action="ExhibitionModiProc.jsp" method="post" name="ExFrm<%=exidx%>">
+<form action="ExhibitionModiProc.jsp?exidx=<%=exidx %>" method="post" name="ExFrm<%=exidx%>">
 <table class="table">
 <tr class="active">
 	<th>전시회고유코드</th>
@@ -37,7 +37,10 @@ if(rs.next()){
 	<th>관람등급</th>
 </tr>
 <tr>
-	<td><input type="text" name="exidx" value="<%=exidx %>" class="inputStyle" disabled/></td>
+	<td>
+
+	<input type="text" value="<%=exidx %>" class="inputStyle" disabled/>
+	</td>
 	<td colspan="2">
 	<input type="text" name="extitle" value="<%=extitle %>" class="inputStyle"/>
 	</td>
@@ -62,7 +65,7 @@ if(rs.next()){
 	<input type="text" name="placename" value="<%=placename %>" class="inputStyle"/></td>
 	<td><input type="text" name="exprice" value="<%=exprice %>" class="inputStyle"/></td>
 	<td><input type="date" name="sdate" value="<%=sdate %>" class="inputStyle"/></td>
-	<td><input type="date" name="" value="<%=edate %>" class="inputStyle"/></td>
+	<td><input type="date" name="edate" value="<%=edate %>" class="inputStyle"/></td>
 	<td><input type="text" name="docent" value="<%=docent %>" class="inputStyle"/></td>
 </tr>
 <tr>
