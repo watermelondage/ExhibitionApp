@@ -20,6 +20,7 @@
 			String payment = rs.getString("payment");
 	%>
 	<div class="col-md-6">
+	<form action="ReservationInsertProc.jsp" method="post">
 	<table class="table table-bordered">
 	<tr>
 		<th class="active">예매번호</th>
@@ -43,14 +44,18 @@
 	</tr>
 	<tr>
 		<th class="active">관람인원</th>
-		<td><%=tcnt %></td>
+		<td>
+			<%=tcnt %>
+		</td>
 	</tr>
 	<tr>
 		<th class="active">결제수단</th>
-		<td><%=payment %></td>
+		<td>
+			<%=payment %>
+		</td>
 	</tr>
-	<tr>
 	</table>
+	</form>
 	</div>
 	<%
 			} while(rs.next());
