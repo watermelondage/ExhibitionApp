@@ -13,8 +13,8 @@
 	String texts = request.getParameter("texts");
 	String placename = request.getParameter("placename");
 	int exprice = Integer.parseInt(request.getParameter("exprice"));
-	String sdate = request.getParameter("sdate").substring(0,10);
-	String edate = request.getParameter("edate").substring(0,10);
+	String sdate = request.getParameter("sdate");
+	String edate = request.getParameter("edate");
 	String docent = request.getParameter("docent");
 
 	String sql="update exhibition set ";
@@ -34,13 +34,11 @@
 	pstmt.setString(10, docent );
 	pstmt.setString(11, exidx );
 
+	int rss = pstmt.executeUpdate();
 	
-	
-	
-	
-	
-	
-	
+	if(rss > 0 ){
+		out.println("<script>alert('수정사항을 반영하였습니다.'); location.replace('Exhibition.jsp');</script>");
+	}
 	
 	
 	

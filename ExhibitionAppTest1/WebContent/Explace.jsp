@@ -14,13 +14,13 @@
 				<th class="text-center">연락처</th>
 				<th class="text-center">운영시간</th>
 				<th class="text-center">휴관일</th>
-				<th class="text-center">수정/삭제</th>
+				<th class="text-center">수정</th>
 				
 			</tr>
 		</thead>
 		
 		<%
-			String sql="select * from explace order by placename";
+			String sql="select * from explace order by codes";
 			
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -38,7 +38,7 @@
 						<td><%=placename %></td>
 						<td><%=rslocation %></td>
 						<td><%=contactno %></td>
-						<td><%=times %></td>
+						<td><%=times.substring(1,3) %>시~ <%=times.subSequence(4,6) %> 까지 </td>
 						<td><%=holiday %></td>
 						<td>
 							<form action="ExplaceModiFrm.jsp" method="get">
@@ -53,47 +53,8 @@
 			}else{out.println("조회실패");}
 		%>
 		</table>		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</tr>
-		</thead>
-	</table>
+
+
+	
 </div>                                          
 <%@ include file="./include/Footer.jsp" %>
