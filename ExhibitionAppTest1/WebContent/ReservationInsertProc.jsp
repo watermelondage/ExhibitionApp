@@ -18,16 +18,11 @@
 		pstmt.setString(4,cnt);
 		pstmt.setString(5,pay);
 
-		
-		
 		int results = pstmt.executeUpdate();
 		if(results>0){
 			response.sendRedirect("Ticket.jsp");
 		}
-		
-		
-		
-		
+
 		
 	%>
 

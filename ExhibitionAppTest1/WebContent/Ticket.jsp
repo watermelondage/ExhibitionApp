@@ -5,6 +5,7 @@
 <br/><br/>
 	<h3 class="text-center">예매내역</h3>
 	<section class="row">
+		<form action="ReservationInsertProc.jsp" method="post">
 	<%
 	String sql = "select * from tickets";
 	pstmt = conn.prepareStatement(sql);
@@ -20,7 +21,7 @@
 			String payment = rs.getString("payment");
 	%>
 	<div class="col-md-6">
-	<form action="ReservationInsertProc.jsp" method="post">
+
 	<table class="table table-bordered">
 	<tr>
 		<th class="active">예매번호</th>
@@ -46,22 +47,28 @@
 		<th class="active">관람인원</th>
 		<td>
 			<%=tcnt %>
-		</td>
+			<input type="hidden" value="<%=tcnt%>" name="tcnt"/>
+ 		</td>
 	</tr>
+	
 	<tr>
 		<th class="active">결제수단</th>
 		<td>
 			<%=payment %>
+			<input type="hidden" value="<%=payment%>" name="payment"/>
 		</td>
 	</tr>
+	
 	</table>
-	</form>
+
 	</div>
 	<%
 			} while(rs.next());
 		}else{
 			out.println("조회실패");
 		}
+	
 	%>
+		</form>
 	</section>
 <%@ include file="./include/Footer.jsp" %>
